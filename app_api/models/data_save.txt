@@ -1,0 +1,48 @@
+$ mongo
+db.ingredient.save({name: 'Carrot'})
+> show dbs
+> use recipe
+> show collections
+db.collectionName.find(queryObject)
+
+//remote db uri
+mongodb://eranot:Whatthefuck4@ds023108.mlab.com:23108/eranot
+
+■ Username: eranot
+■ Password: Whatthefuck4
+■ Server address: ds023108.mlab.com
+■ Port: 23108
+■ Database name: eranot
+
+// set mongolab locally
+$ heroku config:set MONGOLAB_URI=your_db_uri
+
+
+
+//  UPDATING REMOTE WITH LOCAL
+//Dump (export) local database to temp storage
+    $ mongodump -h localhost:27017 -d recipe -o ~/code/mongodump
+
+//Beam up local to remote
+$ mongorestore -h ds023108.mlab.com:23108 -d eranot -u eranot -p Whatthefuck4 ~/code/mongodump/recipe
+
+
+
+// UPDATING LOCAL WITH REMOTE (commandline NOT mongo)
+// Beam down from remote
+$ mongodump -h ds023108.mlab.com:23108 -d eranot -c recipes -u eranot -p Whatthefuck4 -o ~/code/fromMlabDump
+
+//Restore local database from remote
+$ mongorestore --collection recipes --db recipe  ~/code/fromMlabDump/eranot/recipes.bson --drop
+
+
+
+//Connect to remote
+$ mongo ds023108.mlab.com:23108/eranot -u eranot -p Whatthefuck4
+
+> show collections
+> db.recipes.find()
+
+heroku config:get NODE_ENV
+
+db.recipes.save({name: 'Toasted Sandwich',ingredients: [{name: 'cheese', quantity: '0'},{name: 'oregano', quantity: 'Half bunch'},{name: 'Bread', quantity: 'Slice'}],instructions: 'Top with cheese and grill'})

@@ -1,0 +1,245 @@
+body {
+  background-color: #190C00;
+  margin: auto    ;
+  padding: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #F3DF3E;
+}
+html {
+  overflow-y: scroll;
+}
+.width {
+  background-color:#341900 ;
+  margin: 0 auto;
+  width: 1010px;
+  border: 7px solid #542800;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  min-height: 630px;
+  overflow: auto;
+  position: relative;
+}
+nav, section {
+  display: inline-block;
+  vertical-align: top;
+  min-height: 630px;
+}
+nav {
+  width: 200px;
+}
+.mid {
+  border-left: 2px solid #542800;
+  border-right: 2px solid #542800;
+  padding: 0 15px 0 25px;
+  width: 466px;
+}
+.right {
+  padding: 0 15px 0 25px;
+  width: 250px;
+}
+#loading {
+  animation: box 8s;
+  border: 2px solid brown;
+  height: 200px;
+  margin: 50px auto 0;
+  padding: 15px 0 25px 25px;
+  width: 120px;
+}
+@keyframes box {
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+}
+.loadText{
+  position: absolute;
+}
+.loadText.one{
+  animation: moveLeft 5s linear forwards;
+  top: 80px;
+}
+.loadText.two{
+  animation: moveRight 5s linear forwards;
+  top: 120px;
+}
+.loadText.three{
+  animation: moveLeft 5s linear forwards;
+  top: 160px;
+}
+.loadText.four{
+  animation: moveRight 5s linear forwards;
+  top: 200px;
+}
+@keyframes moveLeft {
+  from {
+    left: 390px
+  }
+  to {
+    left: 450px
+  }
+}
+@keyframes moveRight {
+  from {
+    left: 510px
+  }
+  to {
+    left: 450px
+  }
+}
+a {
+  color: #4FF93E;
+  text-decoration: none;
+}
+nav a {
+  padding-left: 25px;
+  display: block;
+  margin: 14px;
+}
+nav a:first-child, section p {
+  margin-top: 24px;
+}
+.mid p {
+  white-space: pre-wrap;
+}
+input, textarea {
+  display: block;
+  margin: 5px 0;
+}
+textarea {
+  width: 355px;
+}
+input {
+  z-index: 1;
+}
+form a {
+  text-decoration: none  ;
+  display: block;
+  margin-bottom: 15px;
+}
+#suggest {
+  border: none;
+  border-top: none;
+  position: relative;
+  top: -5px;
+  width: 139px;
+  z-index: 10;
+}
+
+#sugget a:hover {
+  background-color: darksalmon;
+}
+#suggest a:active {
+  background-color: crimson;
+}
+button#clear {
+  float: right;
+  margin-right: 180px;
+  margin-top: -24px;
+}
+.hot {
+  background-color: crimson;
+}
+#ingredients-ul {
+  position: absolute;
+}
+#ingredients-ul li {
+  background-color: #542800;
+  padding: 5px 10px 10px;
+  margin: 0;
+}
+.basic-list {
+  list-style: none;
+  padding:0;
+}
+.basic-list li {
+  margin: 0 0 15px 0;
+}
+.basic-list li.timmy {
+  font-style: italic;
+}
+.mid .basic-list li a {
+  display: inline-block;
+  margin-left: 25px;
+  width: 250px;
+}
+.basic-list li button {
+  vertical-align: top;
+}
+.ingredients {
+  display: none;
+}
+form .ingredients {
+  margin: 5px 0 10px;
+  display: block;
+}
+input.wide {
+  width: 208px;
+}
+.ingredients input.small {
+  width: 60px;
+}
+.ingredients input {
+  display: inline-block;
+  margin: 0 10px 10px;
+  width:145px;
+}
+.ingredients label {
+  display: inline-block;
+  width: 50px;
+}
+input.error {
+  background-color: yellow;
+}
+.ng-valid[required], .ng-valid.required  {
+  border-left: 3px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 3px solid #a94442; /* red */
+}
+button[type='submit'] {
+  background-color: green;
+  color: white;
+  margin: 15px 0;
+}
+button[type='submit']:disabled {
+  background-color: grey;
+  color: darkgrey;
+}
+.small {
+  width: 60px;
+}
+h4 {
+  margin: 20px 0 0;
+}
+dt, dd {
+  display: inline-block;
+  margin: 0 15px 15px 0;
+}
+dt {
+  width: 100px;
+}
+.ingHead {
+  font-size: 1.2em;
+  color: orange;
+}
+.another, .takeaway {
+  background-color: green;
+  border-radius: 10px;
+  box-shadow: 1px 2px 2px;
+  display: block;
+  font-size: 1.4em;
+  margin: 5px 0 20px;
+  width: 30px;
+}
+.takeaway {
+  background-color: darkred;
+  display: inline-block;
+  line-height: 13px;
+  margin: -30px 0 0 150px;
+  vertical-align: top;
+  font-size: 24px;
+  padding: 0;
+}
