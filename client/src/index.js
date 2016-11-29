@@ -1,22 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Clock from './components/Clock'
+import RecipeList from './components/RecipeList'
 import './index.css';
 
-
-
-
 ReactDOM.render(
- <Clock />,
+ <RecipeList />,
  document.getElementById('root')
  );
-
-
- /*import App from './App';
-
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);*/
 
