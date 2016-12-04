@@ -18,8 +18,7 @@ app.use(cookieParser());
 
 // Below uncommented when sending to Heroku
 // remove dinky else (for testing locally as NODE_ENV undefined)
-/*console.log('MMMM', process.env.NODE_ENV);
-if (process.env.NODE_ENV === 'production') {
+/*if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'client/build')));
 } else  {
     app.use(express.static(path.join(__dirname, 'client/build')));

@@ -4,8 +4,9 @@ class RecipeLink extends Component {
 
 
     render() {
+        const link = `recipe/${this.props.id}`;
         return (
-                <a href={this.props.id} >{this.props.name}</a>
+                <a href={link} >{this.props.name}</a>
         );
     }
 }

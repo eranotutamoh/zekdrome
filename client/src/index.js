@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RecipeList from './components/RecipeList'
+import { browserHistory } from 'react-router';
+
+import Routes from './routes';
+
 import './index.css';
 
 ReactDOM.render(
- <RecipeList />,
- document.getElementById('root')
- );
-
+    <Routes history={browserHistory} />,
+    document.getElementById('root')
+);
