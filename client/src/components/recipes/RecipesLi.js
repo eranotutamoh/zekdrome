@@ -8,7 +8,7 @@ class RecipesLi extends Component {
         this.edit = this.edit.bind(this);
     }
     delete() {
-        this.props.delete(this.props.id)
+        this.props.delete(this.props.name,this.props.id)
     }
     edit() {
         this.props.edit(this.props.id)

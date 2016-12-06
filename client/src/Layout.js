@@ -5,6 +5,7 @@ class Layout extends Component {
 
 
     render() {
+        const page = this.props.location.pathname;
         const { mid, right } = this.props;
         return (
 
@@ -12,7 +13,7 @@ class Layout extends Component {
                 <nav>
                     <Link to="/" >Search</Link>
                     <Link to="/recipes">Recipes</Link>
-                    <Link to="/add">Add Recipe</Link>
+                    <Link to="/add" className={page === '/add' ? 'disabled' : ''} >Add Recipe</Link>
                 </nav>
                 <section className="mid">
                     {mid}

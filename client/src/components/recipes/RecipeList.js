@@ -35,11 +35,12 @@ class RecipeList extends Component {
     }
     componentDidMount() {
         this.loadRecipes();
+
     }
     deleteRecipe(name,id) {
         if(!window.confirm('Delete '+name+'? ')) return false;
 
-        fetch(`api/recipedelete/${id}`,{method: 'DELETE'})
+        fetch(`/api/recipedelete/${id}`,{method: 'DELETE'})
             .then(function(response) {
                 if (response.status >= 400) {
                     throw new Error("Bad response from server");
@@ -51,7 +52,7 @@ class RecipeList extends Component {
         browserHistory.push(`/edit/${id}`)
     }
     loadRecipes() {
-        fetch('api/recipes')
+        fetch('/api/recipes')
             .then(function(response) {
                 if (response.status >= 400) {
                     throw new Error("Bad response from server");
