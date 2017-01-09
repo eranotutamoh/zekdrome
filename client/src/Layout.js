@@ -11,7 +11,7 @@ class Layout extends Component {
 
             <div>
                 <nav>
-                    <Link to="/" >Search</Link>
+                    <Link to="/search" >Search</Link>
                     <Link to="/recipes">Recipes</Link>
                     <Link to="/add" className={page === '/add' ? 'disabled' : ''} >Add Recipe</Link>
                 </nav>

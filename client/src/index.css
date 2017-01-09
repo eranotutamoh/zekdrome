@@ -143,6 +143,9 @@ button#clear {
 }
 #ingredients-ul {
   position: absolute;
+  top: 8px;
+  left: 60px;
+  z-index: 10;
 }
 #ingredients-ul li {
   background-color: #542800;
@@ -187,7 +190,7 @@ input.wide {
 }
 .ingredients label {
   display: inline-block;
-  width: 50px;
+  width: 60px;
 }
 input.error {
   background-color: yellow;
@@ -219,7 +222,7 @@ dt, dd {
   margin: 0 15px 15px 0;
 }
 dt {
-  width: 100px;
+  width: 140px;
 }
 .ingHead {
   font-size: 1.2em;
@@ -246,4 +249,7 @@ dt {
 .disabled {
   pointer-events: none;
   opacity: .6;
+}
+.hide {
+  display: none;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RecipeForm from './RecipeForm';
+import API from '../../remote/apiCalls'
 
 class RecipeEdit extends Component {
 
@@ -14,17 +15,7 @@ class RecipeEdit extends Component {
         );
     }
     componentDidMount() {
-        this.loadRecipe(this.props.params.id);
-    }
-    loadRecipe(id) {
-        fetch(`/api/recipe/${id}`)
-            .then(function(response) {
-                if (response.status >= 400) {
-                    throw new Error("Bad response from server");
-                }
-                return response.json();
-            })
-            .then(data  => this.setState({recipe: data }) );
+        API.loadRecipe(this.props.params.id, data  => this.setState({recipe: data }) );
     }
 }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import IngredientSearch from './IngredientSearch';
 
 class Ingredients extends Component {
     constructor(props) {
@@ -7,22 +8,29 @@ class Ingredients extends Component {
         this.remove = this.remove.bind(this);
     }
     remove(evt) {
+        evt.preventDefault();
         this.props.remove(evt, this.props.index);
     }
     updateInput(evt) {
-        this.props.updateInput(evt.target.value, evt.target.name, this.props.index)
+        this.props.updateInput(evt.target.value, evt.target.name, this.props.index);
     }
     render() {
-        let ix = this.props.index;
+
         return (
+
             <div className="ingredients">
-                <label>Name</label>
-                <input autoFocus={ix > 0} type="text" name='name' value={this.props.name} onChange={this.updateInput}  required />
+
+                <IngredientSearch
+                    name={this.props.name}
+                    index={this.props.index}
+                    addIngFocus={this.props.addIngFocus}
+                    update={this.props.updateInput}
+                />
                 <label>Quantity</label>
-                <input type="text" name="quantity" value={this.props.quantity} onChange={this.updateInput} className="small" /><br />
+                <input type="text" name="quantity" value={this.props.quantity} onChange={this.updateInput}  className="small" /><br />
                 <label>Method</label>
                 <input type="text" name="method" value={this.props.method} onChange={this.updateInput} />
-                <button className={ix === 0 ? 'disabled takeaway' : 'takeaway'} onClick={this.remove}  >-</button>
+                <button className={this.props.index === 0 ? 'hide' : 'takeaway'} onClick={this.remove}  >-</button>
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router'
 import RecipesLi from './RecipesLi';
+import API from '../../remote/apiCalls'
 
 class RecipeList extends Component {
 
@@ -34,33 +35,16 @@ class RecipeList extends Component {
         );
     }
     componentDidMount() {
-        this.loadRecipes();
-
+        API.loadRecipes(data  => this.setState({recipes: data }));
     }
     deleteRecipe(name,id) {
         if(!window.confirm('Delete '+name+'? ')) return false;
-
-        fetch(`/api/recipedelete/${id}`,{method: 'DELETE'})
-            .then(function(response) {
-                if (response.status >= 400) {
-                    throw new Error("Bad response from server");
-                }
-            })
-            .then(() => this.setState({ recipes: this.state.recipes.filter((recipe) =>  recipe._id !== id)}));
+        API.deleteRecipe(id,() => this.setState({ recipes: this.state.recipes.filter((recipe) =>  recipe._id !== id)}));
     }
     editRecipe(id) {
         browserHistory.push(`/edit/${id}`)
     }
-    loadRecipes() {
-        fetch('/api/recipes')
-            .then(function(response) {
-                if (response.status >= 400) {
-                    throw new Error("Bad response from server");
-                }
-                return response.json();
-            })
-            .then(data  => this.setState({recipes: data }) );
-    }
+
 }
 
 

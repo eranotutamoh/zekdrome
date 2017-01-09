@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router'
 import Ingredient from '../../abstract/ingredient.js'
 import Recipe from '../../abstract/recipe.js'
-import Ingredients from './Ingredient';
+import API from '../../remote/apiCalls'
+import Ingredients from './Ingredient'
 
 class RecipeForm extends Component {
-
+    addIngFocus: false;
     constructor(props) {
         super(props);
         this.state = {recipe: this.newRecipe()};
@@ -18,12 +19,11 @@ class RecipeForm extends Component {
     componentWillReceiveProps(props) {
         this.setState({recipe: props.editRecipe});
     }
-    componentWillUnmount(){
-        console.log('unmouted')
-    }
+
     render() {
+        if(this.props.editRecipe && this.state.recipe.name === '') return null;
         const title = (this.props.editRecipe) ? `Edit ${this.props.editRecipe.name}` : 'Add Recipe';
-        const ings = this.state.recipe.ingredients.map((ing, ix) => {
+        let ings = this.state.recipe.ingredients.map((ing, ix) => {
             return (
                 <Ingredients
                     key={ix}
@@ -33,7 +33,8 @@ class RecipeForm extends Component {
                     method={ing.method || ''}
                     updateInput={this.updateIngInput}
                     remove={this.removeIngredient}
-                    ingsLength={this.state.recipe.ingredients.length}
+                    addIngFocus={this.addIngFocus}
+                    //ingsLength={this.state.recipe.ingredients.length}
 
                 />
             );
@@ -42,10 +43,9 @@ class RecipeForm extends Component {
             <form  action="/api/recipeadd" method="post"  autoComplete="off"  onSubmit={this.onFormSubmit}>
                 <h1>{title}</h1>
                 <label>Recipe name</label>
-                <input  autoFocus type="text" name="name"  value={this.state.recipe.name} onChange={this.updateInput} className="wide"  required />
+                <input autoFocus type="text" name="name"  value={this.state.recipe.name} onChange={this.updateInput} className="wide" required />
 
                 <h4 >Ingredients</h4>
-                <ul className="basic-list" id="ingredients-ul" style={{display:'none'}}></ul>
                 {ings}
                 <button className="another" onClick={this.addIngredient} >+</button>
                 <label className="beforeThis">Instructions</label>
@@ -63,11 +63,13 @@ class RecipeForm extends Component {
         let recipe =  this.state.recipe;
         recipe[evt.target.name] = evt.target.value;
         this.setState({recipe: recipe });
+
     }
     addIngredient(evt) {
         evt.preventDefault();
         let recipe =  this.state.recipe;
         recipe.ingredients.push(new Ingredient('','',''));
+        this.addIngFocus= true;
         this.setState({recipe: recipe });
     }
     removeIngredient(evt, ix) {
@@ -80,30 +82,11 @@ class RecipeForm extends Component {
         let ing = [new Ingredient('', '','')]
         return new Recipe('', ing, '');
     }
-    updateRecipe() {
-        let link = ['/recipe/', this.props.editRecipe._id];
-        fetch(`/api/recipeedit/${this.props.editRecipe._id}`,{method: 'PUT', body: JSON.stringify(this.state.recipe), headers: new Headers({'Content-Type': 'application/json'})})
-            .then(function(response) {
-                if (response.status >= 400) {
-                    throw new Error("Bad response from server");
-                }
-            })
-            .then(() => browserHistory.push(link));
-    }
-    addRecipe() {
-        fetch(`/api/recipeadd/`,{method: 'POST', body: JSON.stringify(this.state.recipe), headers: new Headers({'Content-Type': 'application/json'})})
-            .then(function(response) {
-                if (response.status >= 400) {
-                    throw new Error("Bad response from server");
-                }
-                return response.json();
-            })
-            .then((data) => browserHistory.push(`/recipe/${data._id}`));
-    }
+
     onFormSubmit(evt) {
         evt.preventDefault();
-        if(this.props.editRecipe) this.updateRecipe();
-        else this.addRecipe();
+        if(this.props.editRecipe) API.updateRecipe(this.props.editRecipe._id,this.state.recipe, () => browserHistory.push(`/recipe/${this.props.editRecipe._id}`));
+        else API.addRecipe(this.state.recipe,(data) => browserHistory.push(`/recipe/${data._id}`));
 
     }
 }
