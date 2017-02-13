@@ -24,8 +24,8 @@ class RecipeList extends Component {
                 />
             );
         });
-        return (
 
+        return (
             <div>
                 <h1>Recipes</h1>
                <ul className='basic-list'>
@@ -44,7 +44,6 @@ class RecipeList extends Component {
     editRecipe(id) {
         browserHistory.push(`/edit/${id}`)
     }
-
 }
 
 
