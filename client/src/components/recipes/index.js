@@ -4,6 +4,6 @@ import RecipeList from './RecipeList'
 
 
 ReactDOM.render(
-    <RecipesList />,
+    <RecipeList />,
     document.getElementById('root')
 );
