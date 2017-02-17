@@ -1,9 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import RecipeList from './RecipeList'
+import React from 'react'
+import RecipeList from '../../containers/RecipeList'
 
 
-ReactDOM.render(
-    <RecipeList />,
-    document.getElementById('root')
-);
+const Recipes = () => (
+
+        <RecipeList/>
+
+)
+
+export default Recipes
