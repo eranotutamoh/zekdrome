@@ -22,6 +22,13 @@ const successDelete = function(id) {
         id
     }
 }
+const loadRecipe = function(data) {
+    return {
+        type: 'EDIT_LINK_RECIPE',
+        data
+    }
+}
+
 
 export const  fetchRecipes = function () {
     return dispatch => {
@@ -33,11 +40,38 @@ export const  fetchRecipes = function () {
     }
 }
 
+export const  addRecipe = function () {
+    return dispatch => {
+        dispatch(requestRecipes())
+        return API.loadRecipes(data => {
+                dispatch(receiveRecipes(data))
+            }
+        );
+    }
+}
+export const  editRecipe = function () {
+    return dispatch => {
+        dispatch(requestRecipes())
+        return API.loadRecipes(data => {
+                dispatch(receiveRecipes(data))
+            }
+        );
+    }
+}
 export const  deleteRecipe = function (id) {
     return dispatch => {
        dispatch(requestDelete())
         return API.deleteRecipe(id, () => {
                 dispatch(successDelete(id))
+            }
+        );
+    }
+}
+
+export const editRecipeLink = function (id) {
+    return dispatch => {
+        return API.loadRecipe(id, data => {
+                dispatch(loadRecipe(data))
             }
         );
     }

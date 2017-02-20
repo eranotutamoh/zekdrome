@@ -15,7 +15,6 @@ const RecipeList = (props) => {
                     name={recipe.name}
                     id={recipe._id}
                     onDelete={() => props.deleteRecipe(recipe.name,recipe._id)}
-                    onEdit={() => props.editRecipe(recipe._id)}
                 />
 
             )}
