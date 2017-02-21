@@ -1,10 +1,10 @@
 import React from 'react'
-import RecipeForm from '../../containers/RecipeForm'
+import RecipeAddUpdate from '../../containers/RecipeAddUpdate'
 
 
 const RecipeAdd = () => (
 
-    <RecipeForm add={true}/>
+    <RecipeAddUpdate add={true}/>
 
 )
 

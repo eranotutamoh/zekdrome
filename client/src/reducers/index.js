@@ -24,10 +24,18 @@ const Reducer = function(state = {isFetching: false, isDeleting: false, recipes:
             }
         }
         case 'EDIT_LINK_RECIPE': {
+            sessionStorage.setItem('recipe', JSON.stringify(action.data))
             window.setTimeout(() => browserHistory.push(`/update`) , 0)
             return {
                 ...state,
                 recipe: action.data
+            }
+        }
+        case 'UPDATED_RECIPE': {
+            window.setTimeout(() => browserHistory.push(`/recipe/${action.recipe._id}`) , 0)
+            return {
+                ...state,
+                recipe: action.recipe
             }
         }
         default: {
