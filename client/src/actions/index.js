@@ -28,7 +28,12 @@ const loadRecipe = function(data) {
         data
     }
 }
-
+const updatedRecipe = function(recipe) {
+    return {
+        type: 'UPDATED_RECIPE',
+        recipe
+    }
+}
 
 export const  fetchRecipes = function () {
     return dispatch => {
@@ -39,23 +44,21 @@ export const  fetchRecipes = function () {
         );
     }
 }
+export const  addRecipe = function (recipe) {
 
-export const  addRecipe = function () {
     return dispatch => {
-        dispatch(requestRecipes())
-        return API.loadRecipes(data => {
-                dispatch(receiveRecipes(data))
-            }
-        );
+        API.addRecipe(recipe, (data) => {
+            dispatch(fetchRecipes())
+            dispatch(updatedRecipe(data) )
+        })
     }
 }
-export const  editRecipe = function () {
+export const  editRecipe = function (recipe) {
     return dispatch => {
-        dispatch(requestRecipes())
-        return API.loadRecipes(data => {
-                dispatch(receiveRecipes(data))
-            }
-        );
+        API.updateRecipe(recipe._id, recipe, () => {
+            dispatch(fetchRecipes())
+            dispatch(updatedRecipe(recipe) )
+        })
     }
 }
 export const  deleteRecipe = function (id) {
