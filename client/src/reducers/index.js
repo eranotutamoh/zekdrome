@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router'
 
 
 
-const Reducer = function(state = {isFetching: false, isDeleting: false, recipes: [], recipe: {}, chooseIngredients: [], findByIngredient: []}, action) {
+const Reducer = function(state = {isFetching: false, isDeleting: false, recipes: [], recipe: {}, chooseIngredients: [], findByIngredient: [], recipesBySearch: []}, action) {
     switch (action.type) {
         case 'REQUEST_RECIPES': {
             return {...state, isFetching: true}
@@ -31,6 +31,14 @@ const Reducer = function(state = {isFetching: false, isDeleting: false, recipes:
                 recipe: action.recipe
             }
         }
+            case 'GET_RECIPES_BY_SEARCH': {
+
+            //sessionStorage.setItem('recipe', JSON.stringify(action.recipe))
+            return {
+                ...state,
+                recipesBySearch: action.recipes
+            }
+        }
         case 'GET_INGREDIENTS': {
             return {
                 ...state,
@@ -43,11 +51,19 @@ const Reducer = function(state = {isFetching: false, isDeleting: false, recipes:
                 chooseIngredients: []
             }
         }
-        case 'FINDBY_INGREDIENT': {
+        case 'FIND_BY_INGREDIENT': {
+            let newState = [];
             return {
                 ...state,
                 chooseIngredients: [],
-                findByIngredient: state.findByIngredient.concat(action.ingredient)
+                findByIngredient: newState.concat(action.ingredients)
+            }
+        }
+        case 'CLEAR_RESULTS': {
+            return {
+                ...state,
+                findByIngredient: [],
+                recipesBySearch: []
             }
         }
         default: {

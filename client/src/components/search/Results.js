@@ -1,27 +1,29 @@
 import React from 'react'
-
+import RecipeLink from '../../containers/RecipeLink'
 
 
 const Results = (props) => {
-    console.log(props.recipes)
 
-    const filtered =  props.recipes.filter((recipe) => recipe.name.startsWith('A'))
 
-    let recipes =  filtered.map((ing, ix) => (<li key={ix}  >{ing.name}</li>))
+    let recipes =  props.recipes.map((ing, ix) => (
+            <li key={ix}  >
+                <RecipeLink  isButton={false}  _id={ing._id} >
+                    {ing.name}
+                </RecipeLink>
+
+            </li>)
+    )
 
     return (
             <div>
-                <p>Recipes including: {props.findByIngredient.join(', ')}</p>
-                <ul>
+                <p>Searched Recipes with: {props.findByIngredient.join(', ')}</p>
+                <ul className='basic-list'>
                     {
                        recipes
                     }
                 </ul>
             </div>
-
     )
-
-
 }
 
 export default Results;

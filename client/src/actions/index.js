@@ -29,9 +29,21 @@ const getRecipe = function(recipe, route='/recipe') {
         route
     }
 }
+const getRecipesBySearch = function(recipes) {
+    return {
+        type: 'GET_RECIPES_BY_SEARCH',
+        recipes
+    }
+}
 const getIngredients = function(ingredients) {
     return {
         type: 'GET_INGREDIENTS',
+        ingredients
+    }
+}
+const addFindByIngredient = function(ingredients) {
+    return {
+        type: 'FIND_BY_INGREDIENT',
         ingredients
     }
 }
@@ -41,6 +53,14 @@ export const  fetchRecipes = function () {
         dispatch(requestRecipes())
         return API.loadRecipes(data => {
                 dispatch(receiveRecipes(data))
+            }
+        );
+    }
+}
+export const loadRecipe = function (id, route) {
+    return dispatch => {
+        return API.loadRecipe(id, data => {
+                dispatch(getRecipe(data, route))
             }
         );
     }
@@ -72,17 +92,17 @@ export const  deleteRecipe = function (id) {
 }
 export const loadIngredients = function (value) {
     return dispatch => {
-        return API.search(value, data => {
+        return API.getIngredients(value, data => {
                 dispatch(getIngredients(data))
             }
         );
     }
 }
-export const loadRecipe = function (id, route) {
+export const findByIngredient = function (value) {
     return dispatch => {
-        return API.loadRecipe(id, data => {
-                dispatch(getRecipe(data, route))
-            }
-        );
+        dispatch(addFindByIngredient(value))
+        return API.recipesBySearch(value, data => {
+                dispatch(getRecipesBySearch(data))
+            });
     }
 }

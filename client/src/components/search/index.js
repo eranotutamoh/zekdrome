@@ -1,11 +1,22 @@
 import React from 'react'
 
+let ingredientsToSearch = []; //todo clear button
+
 const SearchInput = (props) => {
     let lala
-//() => props.onSearchChange(lala.value)
+
+
+    const selectIngredient = (ingredient) => {
+        ingredientsToSearch.push(ingredient)
+        return props.addIngredient(ingredientsToSearch)
+    }
 
     const hey = () => {
         lala.value = '';
+    }
+    const clear = () => {
+        ingredientsToSearch = [];
+        props.clear();
     }
 
     return (
@@ -17,11 +28,13 @@ const SearchInput = (props) => {
             <ul className="basic-list" id="ingredients-ul" >
                 {
                     props.ingredients.map((ing, ix) => (
-                        <li key={ix} onClick={() => props.addIngredient(ing)} >{ing}</li>
+                        <li key={ix} onClick={() => selectIngredient(ing)} >{ing}</li>
                     ))
                 }
             </ul>
+            <button onClick={() => clear()}>Clear</button>
             </span>
+
     )
 
 

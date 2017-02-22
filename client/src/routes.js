@@ -25,7 +25,7 @@ const Routes = (props) => (
                 <Route path="/add" components={{ mid: RecipeAdd, right: null }}/>
                 <Route path="/update" components={{ mid: RecipeEdit, right: null }}/>
                 <Route path="edit/:id" components={{ mid: RecipeEdit, right: null }}/>
-                <Route path="recipe" components={{ mid: TheRecipe, right: null }}/>
+                <Route path="recipe" components={{ mid: TheRecipe, right: SearchResults }}/>
                 <Route path="/search" components={{ mid: Search, right: SearchResults }}/>
                 <Route path="*" components={{ mid: null, right: null }}/>
             </Route>

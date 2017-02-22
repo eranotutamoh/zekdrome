@@ -1,6 +1,6 @@
 import { connect  } from 'react-redux'
 import SearchInput from '../components/search'
-import {loadIngredients} from '../actions/'
+import {loadIngredients, findByIngredient} from '../actions/'
 
 const mapStateToSearchProps = (state) => {
 
@@ -9,13 +9,15 @@ const mapStateToSearchProps = (state) => {
 
 const mapDispatchToSearchProps = (dispatch) => ( {
         onSearchChange : (value) => {
-            console.log('SEARCH for:', value.trim().length)
             if (!value.trim().length) return dispatch({type: 'CLEAR_INGREDIENTS'})
             return dispatch(loadIngredients(value.trim()))
         },
         addIngredient : (value) => {
-            console.log('Selected:', value)
-            return dispatch({type: 'FINDBY_INGREDIENT', ingredient: value})
+            dispatch({type: 'CLEAR_INGREDIENTS'})
+            return dispatch(findByIngredient(value))
+        },
+        clear : () => {
+            dispatch({type: 'CLEAR_RESULTS'})
         }
     }
 );

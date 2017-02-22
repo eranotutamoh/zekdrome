@@ -2,8 +2,7 @@ import { connect  } from 'react-redux'
 import Results from '../components/search/Results'
 
 const mapStateToSearchProps = (state) => {
-
-    return {findByIngredient : state.findByIngredient, recipes: state.recipes }
+    return {findByIngredient : state.findByIngredient, recipes: state.recipesBySearch }
 }
 
 const mapDispatchToSearchProps = (dispatch) => ( {

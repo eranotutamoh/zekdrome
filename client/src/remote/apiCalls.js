@@ -1,5 +1,13 @@
-function search(query, cb) {
+function getIngredients(query, cb) {
     return fetch(`/api/ingredients?ing=${query}`, {
+        accept: 'application/json',
+    }).then(checkStatus)
+        .then(parseJSON)
+        .then(cb);
+}
+function recipesBySearch(ings, cb) {
+    const query = formatSearch(ings)
+   fetch(`/api/ingredientsearch${query}`, {
         accept: 'application/json',
     }).then(checkStatus)
         .then(parseJSON)
@@ -48,6 +56,14 @@ function checkStatus(response) {
 function parseJSON(response) {
     return response.json();
 }
-
-const API = { search, loadRecipes, deleteRecipe, addRecipe, updateRecipe, loadRecipe  };
+function formatSearch(ingredients) {
+    let searchString = '';
+    let j = 2;
+    for(let i=0; i<ingredients.length; i++) {
+        let par = (i === 0) ? '?ing1=' : '&ing'+j+++'='
+        searchString += par+ingredients[i];
+    }
+    return searchString;
+}
+const API = { getIngredients, loadRecipes, deleteRecipe, addRecipe, updateRecipe, loadRecipe, recipesBySearch  };
 export default API;
