@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router'
 
 
 
-const Reducer = function(state = {isFetching: false, isDeleting: false, recipes: [], recipe: {}}, action) {
+const Reducer = function(state = {isFetching: false, isDeleting: false, recipes: [], recipe: {}, chooseIngredients: [], findByIngredient: []}, action) {
     switch (action.type) {
         case 'REQUEST_RECIPES': {
             return {...state, isFetching: true}
@@ -23,19 +23,31 @@ const Reducer = function(state = {isFetching: false, isDeleting: false, recipes:
                 recipes: newRecipes
             }
         }
-        case 'EDIT_LINK_RECIPE': {
-            sessionStorage.setItem('recipe', JSON.stringify(action.data))
-            window.setTimeout(() => browserHistory.push(`/update`) , 0)
-            return {
-                ...state,
-                recipe: action.data
-            }
-        }
-        case 'UPDATED_RECIPE': {
-            window.setTimeout(() => browserHistory.push(`/recipe/${action.recipe._id}`) , 0)
+        case 'GET_RECIPE': {
+            window.setTimeout(() => browserHistory.push(action.route) , 0)
+            sessionStorage.setItem('recipe', JSON.stringify(action.recipe))
             return {
                 ...state,
                 recipe: action.recipe
+            }
+        }
+        case 'GET_INGREDIENTS': {
+            return {
+                ...state,
+                chooseIngredients: action.ingredients
+            }
+        }
+        case 'CLEAR_INGREDIENTS': {
+            return {
+                ...state,
+                chooseIngredients: []
+            }
+        }
+        case 'FINDBY_INGREDIENT': {
+            return {
+                ...state,
+                chooseIngredients: [],
+                findByIngredient: state.findByIngredient.concat(action.ingredient)
             }
         }
         default: {

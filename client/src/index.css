@@ -143,8 +143,9 @@ button#clear {
 }
 #ingredients-ul {
   position: absolute;
-  top: 8px;
-  left: 60px;
+  top: -17px;
+  left: 0;
+  width: 132px;
   z-index: 10;
 }
 #ingredients-ul li {

@@ -1,14 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-class RecipeLink extends Component {
-
-
-    render() {
-        const link = `recipe/${this.props.id}`;
-        return (
-                <a href={link} >{this.props.name}</a>
-        );
-    }
+const RecipeLinks = (props) => {
+   if (props.isButton) return   ( <button onClick={() => props.onEdit(props._id, props._redirect)} className="edit">{props.children}</button> )
+   else return   ( <a href="#" onClick={() => props.onEdit(props._id, props._redirect)} >{props.children}</a> )
 }
-
-export default RecipeLink;
+export default RecipeLinks

@@ -6,10 +6,11 @@ import thunkMiddleware from 'redux-thunk'
 import reduce  from './reducers'
 import Layout from './Layout'
 import Recipes from './components/recipes/'
-import RecipeDetail from './components/recipe/Recipe'
+import TheRecipe from './containers/Recipe'
 import RecipeEdit from './components/recipe/RecipeEdit'
 import RecipeAdd from './components/recipe/RecipeAdd'
-import Search from './components/search/Search'
+import Search from './containers/Search'
+import SearchResults from './containers/SearchResults'
 import {fetchRecipes} from './actions/'
 
 const store = createStore(reduce, applyMiddleware(thunkMiddleware));
@@ -24,8 +25,8 @@ const Routes = (props) => (
                 <Route path="/add" components={{ mid: RecipeAdd, right: null }}/>
                 <Route path="/update" components={{ mid: RecipeEdit, right: null }}/>
                 <Route path="edit/:id" components={{ mid: RecipeEdit, right: null }}/>
-                <Route path="recipe/:id" components={{ mid: RecipeDetail, right: null }}/>
-                <Route path="/search" components={{ mid: Search, right: null }}/>
+                <Route path="recipe" components={{ mid: TheRecipe, right: null }}/>
+                <Route path="/search" components={{ mid: Search, right: SearchResults }}/>
                 <Route path="*" components={{ mid: null, right: null }}/>
             </Route>
         </Router>

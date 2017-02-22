@@ -1,18 +1,16 @@
 import React from 'react'
-import Link from '../Link'
-import EditLink from '../../containers/EditLink'
+import RecipeLink from '../../containers/RecipeLink'
 
 const RecipeListing = (props) => {
-    const link = `recipe/${props.id}`
         return (
             <li>
                 <button  onClick={props.onDelete}  className="delete">Delete</button>
-                <EditLink isButton={true} _id={props.id}>
+                <RecipeLink isButton={true} _id={props.id}  _redirect="/update">
                     Edit
-                </EditLink>
-                <Link link={link} >
+                </RecipeLink>
+                <RecipeLink  isButton={false}  _id={props.id} >
                     {props.name}
-                </Link>
+                </RecipeLink>
             </li>
         );
 }

@@ -22,16 +22,17 @@ const successDelete = function(id) {
         id
     }
 }
-const loadRecipe = function(data) {
+const getRecipe = function(recipe, route='/recipe') {
     return {
-        type: 'EDIT_LINK_RECIPE',
-        data
+        type: 'GET_RECIPE',
+        recipe,
+        route
     }
 }
-const updatedRecipe = function(recipe) {
+const getIngredients = function(ingredients) {
     return {
-        type: 'UPDATED_RECIPE',
-        recipe
+        type: 'GET_INGREDIENTS',
+        ingredients
     }
 }
 
@@ -45,11 +46,10 @@ export const  fetchRecipes = function () {
     }
 }
 export const  addRecipe = function (recipe) {
-
     return dispatch => {
         API.addRecipe(recipe, (data) => {
             dispatch(fetchRecipes())
-            dispatch(updatedRecipe(data) )
+            dispatch(getRecipe(data) )
         })
     }
 }
@@ -57,7 +57,7 @@ export const  editRecipe = function (recipe) {
     return dispatch => {
         API.updateRecipe(recipe._id, recipe, () => {
             dispatch(fetchRecipes())
-            dispatch(updatedRecipe(recipe) )
+            dispatch(getRecipe(recipe) )
         })
     }
 }
@@ -70,11 +70,18 @@ export const  deleteRecipe = function (id) {
         );
     }
 }
-
-export const editRecipeLink = function (id) {
+export const loadIngredients = function (value) {
+    return dispatch => {
+        return API.search(value, data => {
+                dispatch(getIngredients(data))
+            }
+        );
+    }
+}
+export const loadRecipe = function (id, route) {
     return dispatch => {
         return API.loadRecipe(id, data => {
-                dispatch(loadRecipe(data))
+                dispatch(getRecipe(data, route))
             }
         );
     }

@@ -2,7 +2,7 @@ import { connect  } from 'react-redux'
 import RecipeList from '../components/recipes/RecipeList'
 import {deleteRecipe} from '../actions/'
 
-const mapStateToListProps = (state, ownProps) => {
+const mapStateToListProps = (state) => {
 
  return   {recipes: state.recipes, isFetching: state.isFetching }
 }
