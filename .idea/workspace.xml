@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b9e1dc1-4628-4895-9383-5c8b1845295b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/components/search/Results.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/components/search/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/containers/Recipe.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/containers/RecipeLink.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/containers/Search.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/containers/SearchResults.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/src/components/EditLink.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/src/components/recipe/RecipeAddEdit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/src/components/recipeForm/EditRecipe.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/src/containers/EditLink.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/src/containers/Recipes.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/src/components/recipeForm/RecipeForm.js" afterPath="$PROJECT_DIR$/client/src/components/recipeForm/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/actions/index.js" afterPath="$PROJECT_DIR$/client/src/actions/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/RecipeLink.js" afterPath="$PROJECT_DIR$/client/src/components/RecipeLink.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/recipe/Recipe.js" afterPath="$PROJECT_DIR$/client/src/components/recipe/Recipe.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/recipes/RecipeListing.js" afterPath="$PROJECT_DIR$/client/src/components/recipes/RecipeListing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/containers/RecipeAddUpdate.js" afterPath="$PROJECT_DIR$/client/src/containers/RecipeAddUpdate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/containers/RecipeList.js" afterPath="$PROJECT_DIR$/client/src/containers/RecipeList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/index.css" afterPath="$PROJECT_DIR$/client/src/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/reducers/index.js" afterPath="$PROJECT_DIR$/client/src/reducers/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/routes.js" afterPath="$PROJECT_DIR$/client/src/routes.js" />
-    </list>
+    <list default="true" id="8b9e1dc1-4628-4895-9383-5c8b1845295b" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -48,7 +25,7 @@
         <entry file="file://$PROJECT_DIR$/client/src/containers/Search.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="51" lean-forward="true" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+              <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -60,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/client/src/components/search/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -70,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/client/src/containers/SearchResults.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="79" lean-forward="true" selection-start-line="5" selection-start-column="79" selection-end-line="5" selection-end-column="79" />
+              <caret line="5" column="79" lean-forward="false" selection-start-line="5" selection-start-column="79" selection-end-line="5" selection-end-column="79" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -102,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/client/src/containers/RecipeList.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -112,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/client/src/actions/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+              <caret line="36" column="1" lean-forward="false" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -132,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/client/src/routes.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="12" column="54" lean-forward="true" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+              <caret line="12" column="54" lean-forward="false" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -660,12 +637,12 @@
       <workItem from="1487438364572" duration="17096000" />
       <workItem from="1487609964510" duration="17893000" />
       <workItem from="1487662762099" duration="102000" />
-      <workItem from="1487717667200" duration="8449000" />
+      <workItem from="1487717667200" duration="8565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224302000" />
+    <option name="totallyTimeSpent" value="224418000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1679" height="1027" extended-state="6" />
@@ -951,7 +928,7 @@
     <entry file="file://$PROJECT_DIR$/client/src/actions/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+          <caret line="36" column="1" lean-forward="false" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -967,7 +944,7 @@
     <entry file="file://$PROJECT_DIR$/client/src/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="12" column="54" lean-forward="true" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+          <caret line="12" column="54" lean-forward="false" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -983,7 +960,7 @@
     <entry file="file://$PROJECT_DIR$/client/src/containers/Search.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="51" lean-forward="true" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+          <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
@@ -993,7 +970,7 @@
     <entry file="file://$PROJECT_DIR$/client/src/components/search/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1017,7 +994,7 @@
     <entry file="file://$PROJECT_DIR$/client/src/containers/RecipeList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1025,7 +1002,7 @@
     <entry file="file://$PROJECT_DIR$/client/src/containers/SearchResults.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="79" lean-forward="true" selection-start-line="5" selection-start-column="79" selection-end-line="5" selection-end-column="79" />
+          <caret line="5" column="79" lean-forward="false" selection-start-line="5" selection-start-column="79" selection-end-line="5" selection-end-column="79" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
