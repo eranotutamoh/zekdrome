@@ -1,0 +1,14 @@
+/ BUILD
+app.js note commented out lines
+code/zekdrome npm run build
+Move in finder build folder + any other updated files zekdrome -> z-deploy
+commit files in z-deploy for clean master
+git push heroku master
+
+
+If you want an element that only takes up its allocated width, like a button, use flex: none that expands to 0 0 auto.
+
+If you want to explicitly size an element, use flex: 0 0 size. For example: flex 0 0 60px.
+
+If you want an element that expands to fill space available, that is sharing space equally if there are multiple elements of
+ this kind within the flow, use flex: auto. It expands to 1 1 auto.
