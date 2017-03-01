@@ -12,6 +12,7 @@ class IngredientSearch extends Component {
         this.onSearchChange = this.onSearchChange.bind(this);
         this.addIngredient = this.addIngredient.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
+
     }
     componentWillUnmount() {
         const removeEvent = this.node.removeEventListener;
@@ -40,11 +41,12 @@ class IngredientSearch extends Component {
         if (value === '') this.setState({ingredients: []});
         else API.getIngredients(value, (ings) => {this.setState({ingredients: ings});});
     }
+
     render() {
         return (
             <span style={{position:'relative'}}>
             <label>Name</label>
-            <input ref="autocomplete" autoFocus={this.props.addIngFocus} type="text" name='name' value={this.props.name} onChange={this.onSearchChange} required />
+            <input ref="autocomplete" autoFocus={this.props.addIngFocus}  type="text" name='name' value={this.props.name} onChange={this.onSearchChange} required />
             <ul className="basic-list" id="ingredients-ul" >
                 {
                     this.state.ingredients.map((ing, ix) => (

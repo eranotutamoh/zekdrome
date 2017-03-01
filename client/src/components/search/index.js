@@ -1,22 +1,24 @@
 import React from 'react'
 
-let ingredientsToSearch = []; //todo clear button
+let ingredientsToSearch = [];
 
 const SearchInput = (props) => {
-    let lala
-
+    let searchString
 
     const selectIngredient = (ingredient) => {
         ingredientsToSearch.push(ingredient)
+        searchString.value=''
+        searchString.focus()
         return props.addIngredient(ingredientsToSearch)
     }
-
-    const hey = () => {
-        lala.value = '';
+    const selectOnEnter = (e) => {
+        if(e.keyCode === 13)   selectIngredient(props.ingredients[0])
     }
     const clear = () => {
         ingredientsToSearch = [];
         props.clear();
+        searchString.value=''
+        searchString.focus()
     }
 
     return (
@@ -25,7 +27,7 @@ const SearchInput = (props) => {
                 <h1>Search</h1>
             <label>Enter ingredient</label>
             <div style={{position:'relative'}}>
-            <input autoFocus type="text" ref={node => lala = node}  onBlur={() => hey()} onChange={() => props.onSearchChange(lala.value)} required />
+            <input autoFocus type="text" ref={node => searchString = node}   onKeyDown={(e) => selectOnEnter(e)} onChange={() => props.onSearchChange(searchString.value)} required />
 
             <button onClick={() => clear()}>Clear</button>
             <ul className="basic-list" id="ingredients-ul" >

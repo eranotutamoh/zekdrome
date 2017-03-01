@@ -89,6 +89,7 @@ html {
 }
 .loadText{
   position: absolute;
+  z-index: 10;
 }
 .loadText.one{
   animation: moveLeft 5s linear forwards;

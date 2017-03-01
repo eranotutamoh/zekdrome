@@ -13,6 +13,7 @@ class RecipeForm extends Component {
         this.updateIngInput = this.updateIngInput.bind(this);
         this.addIngredient = this.addIngredient.bind(this);
         this.removeIngredient = this.removeIngredient.bind(this);
+        this.enter = this.enter.bind(this);
     }
 
     componentWillMount(props) {
@@ -46,7 +47,7 @@ class RecipeForm extends Component {
                 {ings}
                 <button className="another" onClick={this.addIngredient} >+</button>
                 <label className="beforeThis">Instructions</label>
-                <textarea rows="7" cols="44" name="instructions" value={this.state.recipe.instructions} onChange={this.updateInput} className="wide"  required></textarea>
+                <textarea rows="7" cols="44" name="instructions" defaultValue={this.state.recipe.instructions} onChange={this.updateInput} onKeyDown={this.enter} className="wide"  required></textarea>
                 <button type="submit"  >Submit</button>
             </form>
             );
@@ -55,6 +56,9 @@ class RecipeForm extends Component {
         let recipe =  this.state.recipe;
         recipe.ingredients[ix][name] = val;
         this.setState({recipe: recipe });
+    }
+    enter(evt) {
+        if(evt.keyCode === 13) evt.target.value += '\n'
     }
     updateInput(evt) {
         let recipe =  this.state.recipe;
