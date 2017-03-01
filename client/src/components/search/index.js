@@ -21,10 +21,13 @@ const SearchInput = (props) => {
 
     return (
 
-        <span style={{position:'relative'}}>
+        <span className="search-field">
                 <h1>Search</h1>
             <label>Enter ingredient</label>
+            <div style={{position:'relative'}}>
             <input autoFocus type="text" ref={node => lala = node}  onBlur={() => hey()} onChange={() => props.onSearchChange(lala.value)} required />
+
+            <button onClick={() => clear()}>Clear</button>
             <ul className="basic-list" id="ingredients-ul" >
                 {
                     props.ingredients.map((ing, ix) => (
@@ -32,7 +35,8 @@ const SearchInput = (props) => {
                     ))
                 }
             </ul>
-            <button onClick={() => clear()}>Clear</button>
+            </div>
+
             </span>
 
     )

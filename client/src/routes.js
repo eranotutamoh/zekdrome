@@ -27,7 +27,7 @@ const Routes = (props) => (
                 <Route path="edit/:id" components={{ mid: RecipeEdit, right: null }}/>
                 <Route path="recipe" components={{ mid: TheRecipe, right: SearchResults }}/>
                 <Route path="/search" components={{ mid: Search, right: SearchResults }}/>
-                <Route path="*" components={{ mid: null, right: null }}/>
+                <Route path="*" components={{ mid: Recipes, right: null }}/>
             </Route>
         </Router>
     </Provider>

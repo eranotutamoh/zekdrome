@@ -9,7 +9,7 @@ class Layout extends Component {
         const { mid, right } = this.props;
         return (
 
-            <div class="container">
+            <div className="container">
                 <nav>
                     <Link to="/search" >Search</Link>
                     <Link to="/recipes">Recipes</Link>

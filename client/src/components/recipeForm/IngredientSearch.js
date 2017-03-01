@@ -38,7 +38,7 @@ class IngredientSearch extends Component {
         const value = e.target.value;
         this.props.update(value, 'name', this.props.index);
         if (value === '') this.setState({ingredients: []});
-        else API.search(value, (ings) => {this.setState({ingredients: ings});});
+        else API.getIngredients(value, (ings) => {this.setState({ingredients: ings});});
     }
     render() {
         return (
